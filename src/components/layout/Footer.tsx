@@ -34,8 +34,12 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <div className="text-3xl font-bold mb-4">
-                Savees<span className="text-accent">Group</span>
+              <div className="mb-4">
+                <img 
+                  src="/logo.png" 
+                  alt="Savees Group Logo"
+                  className="h-16 w-auto"
+                />
               </div>
               <p className="text-white/80 leading-relaxed mb-6">
                 Your trusted partner for professional staffing solutions across the UK hospitality 
@@ -134,17 +138,14 @@ const Footer = () => {
         <div className="container mx-auto container-padding py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 text-sm">
-              © {currentYear} Savees Group Ltd. All rights reserved.
+              {currentYear} Savees Group Ltd. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-white/60 hover:text-accent transition-colors duration-200">
+              <a href="/privacy-policy" className="text-white/60 hover:text-accent transition-colors duration-200">
                 Privacy Policy
               </a>
-              <a href="#" className="text-white/60 hover:text-accent transition-colors duration-200">
+              <a href="/terms-of-service" className="text-white/60 hover:text-accent transition-colors duration-200">
                 Terms of Service
-              </a>
-              <a href="#" className="text-white/60 hover:text-accent transition-colors duration-200">
-                Cookie Policy
               </a>
             </div>
           </div>
