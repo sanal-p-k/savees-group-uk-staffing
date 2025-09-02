@@ -171,7 +171,7 @@ const Index: React.FC = () => {
                 <CardContent className="px-0">
                   <p className="text-muted-foreground">{service.description}</p>
                   <Button asChild variant="link" className="mt-4 text-primary">
-                    <a href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <a href="/services">
                       Learn more <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -212,8 +212,8 @@ const Index: React.FC = () => {
                 ))}
               </div>
               <Button asChild>
-                <a href="/about" className="flex items-center gap-2">
-                  Learn More About Us <ArrowRight className="w-4 h-4" />
+                <a href="/services" className="flex items-center gap-2">
+                  Learn More About Our Services <ArrowRight className="w-4 h-4" />
                 </a>
               </Button>
             </div>

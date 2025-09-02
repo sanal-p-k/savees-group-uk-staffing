@@ -131,7 +131,7 @@ const Services = ({ expanded = false }: ServicesProps) => {
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <Card key={index} className="border-none shadow-medium hover:shadow-strong transition-all duration-300 overflow-hidden">
+                <Card key={index} id={service.title.toLowerCase().replace(/\s+/g, '-')} className="border-none shadow-medium hover:shadow-strong transition-all duration-300 overflow-hidden scroll-mt-20">
                   <div className="relative h-48">
                     <img
                       src={service.image}
