@@ -56,14 +56,6 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/contact">
-              <Button 
-                variant="default" 
-                className="bg-accent hover:bg-accent/90 text-white"
-              >
-                Get in Touch
-              </Button>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
