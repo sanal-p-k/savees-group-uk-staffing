@@ -2,39 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Savees Group Ltd Design System - Professional Staffing Company
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors - Savees Group Ltd */
+    --background: 42 29% 96%; /* Cream White #F9F6EE */
+    --foreground: 160 100% 13%; /* Deep Green #004225 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 42 29% 98%;
+    --card-foreground: 160 100% 13%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 42 29% 98%;
+    --popover-foreground: 160 100% 13%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 160 100% 13%; /* Deep Green #004225 */
+    --primary-foreground: 42 29% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 42 29% 94%;
+    --secondary-foreground: 160 100% 13%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 42 29% 92%;
+    --muted-foreground: 160 50% 25%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 14 75% 60%; /* Copper Orange #E97451 */
+    --accent-foreground: 42 29% 96%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 42 29% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 42 29% 88%;
+    --input: 42 29% 88%;
+    --ring: 160 100% 13%;
+
+    /* Custom Brand Tokens */
+    --brand-green: 160 100% 13%; /* Deep Green #004225 */
+    --brand-green-light: 160 50% 25%;
+    --brand-cream: 42 29% 96%; /* Cream White #F9F6EE */
+    --brand-copper: 14 75% 60%; /* Copper Orange #E97451 */
+    --brand-copper-light: 14 75% 70%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(160 100% 13%), hsl(160 80% 18%));
+    --gradient-subtle: linear-gradient(180deg, hsl(42 29% 98%), hsl(42 29% 94%));
+    --gradient-accent: linear-gradient(135deg, hsl(14 75% 60%), hsl(14 75% 70%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(160 100% 13% / 0.1);
+    --shadow-medium: 0 8px 30px hsl(160 100% 13% / 0.15);
+    --shadow-strong: 0 12px 40px hsl(160 100% 13% / 0.2);
 
     --radius: 0.5rem;
 
@@ -56,41 +74,48 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode using same brand colors with adjusted contrast */
+    --background: 160 100% 8%;
+    --foreground: 42 29% 96%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 160 100% 10%;
+    --card-foreground: 42 29% 96%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 160 100% 10%;
+    --popover-foreground: 42 29% 96%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 42 29% 96%;
+    --primary-foreground: 160 100% 13%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 160 50% 15%;
+    --secondary-foreground: 42 29% 96%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 160 50% 15%;
+    --muted-foreground: 42 29% 80%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 14 75% 60%;
+    --accent-foreground: 160 100% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 42 29% 96%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 160 50% 20%;
+    --input: 160 50% 20%;
+    --ring: 42 29% 96%;
+
+    /* Dark mode brand tokens */
+    --brand-green: 160 100% 8%;
+    --brand-green-light: 160 50% 25%;
+    --brand-cream: 42 29% 96%;
+    --brand-copper: 14 75% 60%;
+    --brand-copper-light: 14 75% 70%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(160 100% 8%), hsl(160 80% 12%));
+    --gradient-subtle: linear-gradient(180deg, hsl(160 100% 10%), hsl(160 50% 15%));
+
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 12px 40px hsl(0 0% 0% / 0.5);
   }
 }
 
@@ -100,6 +125,64 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .subtle-gradient {
+    background: var(--gradient-subtle);
+  }
+
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-padding {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -1,0 +1,148 @@
+import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook } from "lucide-react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const quickLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Industries", href: "#industries" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  const services = [
+    "Hospitality Staffing",
+    "Logistics Staffing", 
+    "Temporary Placements",
+    "Permanent Placements"
+  ];
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <footer className="bg-primary text-white">
+      {/* Main Footer Content */}
+      <div className="container mx-auto container-padding section-padding">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+          {/* Company Info */}
+          <div className="lg:col-span-2">
+            <div className="mb-6">
+              <div className="text-3xl font-bold mb-4">
+                Savees<span className="text-accent">Group</span>
+              </div>
+              <p className="text-white/80 leading-relaxed mb-6">
+                Your trusted partner for professional staffing solutions across the UK hospitality 
+                and logistics industries. We connect exceptional talent with leading businesses, 
+                building partnerships that drive success.
+              </p>
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0" />
+                <span className="text-white/80">123 Business Park Way, London, UK EC1A 1BB</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-accent flex-shrink-0" />
+                <span className="text-white/80">+44 20 1234 5678</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-accent flex-shrink-0" />
+                <span className="text-white/80">info@saveesgroup.co.uk</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <button
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-white/80 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6">Our Services</h3>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service} className="text-white/80">
+                  {service}
+                </li>
+              ))}
+            </ul>
+
+            {/* Social Links */}
+            <div className="mt-8">
+              <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+              <div className="flex space-x-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-white/20">
+        <div className="container mx-auto container-padding py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-white/60 text-sm">
+              © {currentYear} Savees Group Ltd. All rights reserved.
+            </div>
+            <div className="flex space-x-6 text-sm">
+              <a href="#" className="text-white/60 hover:text-accent transition-colors duration-200">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-white/60 hover:text-accent transition-colors duration-200">
+                Terms of Service
+              </a>
+              <a href="#" className="text-white/60 hover:text-accent transition-colors duration-200">
+                Cookie Policy
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
