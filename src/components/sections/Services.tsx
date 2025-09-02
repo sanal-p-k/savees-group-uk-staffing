@@ -157,13 +157,7 @@ const Services = ({ expanded = false }: ServicesProps) => {
                         </li>
                       ))}
                     </ul>
-                    <Button 
-                      variant="outline" 
-                      className="border-accent text-accent hover:bg-accent hover:text-white"
-                      onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    >
-                      Learn More
-                    </Button>
+                    
                   </CardContent>
                 </Card>
               );
