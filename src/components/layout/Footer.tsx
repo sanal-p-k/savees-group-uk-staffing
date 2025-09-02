@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -46,17 +46,20 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-accent flex-shrink-0" />
-                <span className="text-white/80">123 Business Park Way, London, UK EC1A 1BB</span>
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="text-white/80">22A Queens Parade,<br />Hanger Lane<br />London, W5 3HU, UK</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <span className="text-white/80">+44 20 1234 5678</span>
+                <span className="text-white/80">+44 7543 538033</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                <span className="text-white/80">info@saveesgroup.co.uk</span>
+              <div className="flex items-start space-x-3">
+                <Mail className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col">
+                  <a href="mailto:info@saveesgroup.com" className="text-white/80 hover:text-accent transition-colors">info@saveesgroup.com</a>
+                  <a href="mailto:saveesgroupltd@gmail.com" className="text-white/80 hover:text-accent transition-colors">saveesgroupltd@gmail.com</a>
+                </div>
               </div>
             </div>
           </div>
@@ -94,25 +97,31 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
               <div className="flex space-x-4">
                 <a
-                  href="#"
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
+                  href="https://www.facebook.com/saveesgroup/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/savees_group_ltd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/savees-group-ltd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
                 </a>
               </div>
             </div>

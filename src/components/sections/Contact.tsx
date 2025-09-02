@@ -6,7 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const Contact = () => {
+interface ContactProps {
+  expanded?: boolean;
+}
+
+const Contact = ({ expanded = false }: ContactProps) => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -51,39 +55,38 @@ const Contact = () => {
       title: "Office Address",
       details: [
         "Savees Group Ltd",
-        "123 Business Park Way",
-        "London, UK EC1A 1BB"
+        "22A Queens Parade, Hanger Lane",
+        "London, W5 3HU, UK"
       ]
     },
     {
       icon: Phone,
       title: "Phone Number",
       details: [
-        "+44 20 1234 5678",
-        "Mon-Fri: 8:00 AM - 6:00 PM"
+        "+44 7543 538033",
+        "Mon-Sun: 24/7 Availability"
       ]
     },
     {
       icon: Mail,
       title: "Email Address",
       details: [
-        "info@saveesgroup.co.uk",
-        "careers@saveesgroup.co.uk"
+        "info@saveesgroup.com",
+        "saveesgroupltd@gmail.com"
       ]
     },
     {
       icon: Clock,
       title: "Business Hours",
       details: [
-        "Monday - Friday: 8:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 1:00 PM",
-        "Sunday: Closed"
+        "24/7 Emergency Service Available",
+        "Office Hours: 8:00 AM - 10:00 PM"
       ]
     }
   ];
 
   return (
-    <section id="contact" className="section-padding subtle-gradient">
+    <section id="contact" className={`py-16 md:py-24 bg-background ${expanded ? 'min-h-screen' : ''}`}>
       <div className="container mx-auto container-padding">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -211,17 +214,6 @@ const Contact = () => {
                   );
                 })}
               </div>
-
-              {/* Map Placeholder */}
-              <Card className="border-none shadow-medium mt-8 overflow-hidden">
-                <div className="h-64 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
-                    <p className="text-primary font-medium">Interactive Map</p>
-                    <p className="text-muted-foreground text-sm">London Office Location</p>
-                  </div>
-                </div>
-              </Card>
             </div>
           </div>
         </div>

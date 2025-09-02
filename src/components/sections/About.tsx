@@ -1,7 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Zap, Heart } from "lucide-react";
 
-const About = () => {
+interface AboutProps {
+  expanded?: boolean;
+}
+
+const About = ({ expanded = false }: AboutProps) => {
   const values = [
     {
       icon: Shield,

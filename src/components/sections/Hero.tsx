@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-staffing.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -45,29 +46,26 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg" 
-              onClick={scrollToContact}
-              className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg font-semibold shadow-strong"
+              asChild
+              className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              Get in Touch
+              <Link to="/Contact">
+                Get in Touch
+              </Link>
             </Button>
             <Button 
               size="lg" 
               variant="outline"
-              onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold"
+              asChild
+              className="bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/30 px-10 py-6 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:-translate-y-1"
             >
-              Our Services
+              <Link to="/services">
+                Our Services
+              </Link>
             </Button>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </div>
