@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 interface ContactProps {
   expanded?: boolean;
@@ -32,21 +33,60 @@ const Contact = ({ expanded = false }: ContactProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for contacting Savees Group. We'll get back to you within 24 hours.",
-      });
+    try {
+      // Initialize EmailJS with public key from environment variables
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const toEmail = import.meta.env.VITE_EMAILJS_TO_EMAIL;
+
+      if (!publicKey || !serviceId || !templateId || !toEmail) {
+        throw new Error('Missing required EmailJS configuration');
+      }
+
+      emailjs.init(publicKey);
       
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
+      // Send the email using the template with environment variables
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone || 'Not provided',
+          message: formData.message,
+          to_email: toEmail,
+          reply_to: formData.email
+        },
+        publicKey
+      );
+
+      // Convert status to string for consistent comparison
+      const status = result.status.toString();
+      if (status === '200') {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for contacting Savees Group. We'll get back to you within 24 hours.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      }
+    } catch (error: any) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Error Sending Message",
+        description: error?.message || "There was an error sending your message. Please try again later.",
+        variant: "destructive"
       });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const contactInfo = [
